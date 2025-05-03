@@ -55,3 +55,40 @@ export const SiteIconWithText: React.FC<svgProps> = ({
     </svg>
   );
 };
+export const MoveOut: React.FC<svgProps> = ({
+  width = 25,
+  height = 25,
+  fillColour = "#000",
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18.3848 13.6122V19.6122C18.3848 20.1426 18.1741 20.6513 17.799 21.0264C17.4239 21.4015 16.9152 21.6122 16.3848 21.6122H5.38477C4.85433 21.6122 4.34562 21.4015 3.97055 21.0264C3.59548 20.6513 3.38477 20.1426 3.38477 19.6122V8.61218C3.38477 8.08175 3.59548 7.57304 3.97055 7.19797C4.34562 6.8229 4.85433 6.61218 5.38477 6.61218H11.3848"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.3848 3.61218H21.3848V9.61218"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.3848 14.6122L21.3848 3.61218"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

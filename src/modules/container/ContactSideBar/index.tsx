@@ -7,7 +7,7 @@ const ContactSideBar = ({
 }) => {
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-[400px] bg-transparent transform transition-transform duration-300 p-4 ${
+      className={`fixed z-30 top-0 right-0 h-full w-[400px] bg-transparent transform transition-transform duration-300 p-4 ${
         isVisible ? "translate-x-0" : "translate-x-full"
       }`}
     >
