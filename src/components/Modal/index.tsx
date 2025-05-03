@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: any }) => {
                 >
                     ✕
                 </button>
-                <div>Modal Content</div>
+                <div>Modal Content good</div>
             </div>
         </div>
     );
