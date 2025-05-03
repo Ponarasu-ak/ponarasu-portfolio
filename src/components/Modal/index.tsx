@@ -1,3 +1,4 @@
+import { ExandIn } from "../../assets";
 
 const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: any }) => {
     if (!isOpen) return null;
@@ -9,9 +10,9 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: any }) => {
                     className="absolute top-2 right-2 text-white"
                     onClick={onClose}
                 >
-                    ✕
+                    <ExandIn  fillColour="#fff" />
                 </button>
-                <div>Modal Content good</div>
+                <div>Modal Content</div>
             </div>
         </div>
     );
