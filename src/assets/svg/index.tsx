@@ -92,3 +92,65 @@ export const MoveOut: React.FC<svgProps> = ({
     </svg>
   );
 };
+export const ExandOut: React.FC<svgProps> = ({
+  width = 24,
+  height = 24,
+  fillColour = "#000",
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.61539 19.3846L5 19.3846C4.44772 19.3846 4 18.9369 4 18.3846L4 14.7692M4.76918 18.6155L10.1538 13.2309M19.3844 8.61514L19.3844 4.99976C19.3844 4.44747 18.9367 3.99976 18.3844 3.99976L14.769 3.99976M18.6152 4.76902L13.2305 10.1536"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const ExandIn: React.FC<svgProps> = ({
+  width = 24,
+  height = 24,
+  fillColour = "#000",
+}) => {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.8466 13.5382L9.46199 13.5382C10.0143 13.5382 10.462 13.9859 10.462 14.5382L10.462 18.1535"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M9.69321 14.3073L4.30859 19.6919"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M13.5382 5.8466L13.5382 9.46199C13.5382 10.0143 13.9859 10.462 14.5382 10.462L18.1535 10.462"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M14.3068 9.69272L19.6914 4.30811"
+        stroke={fillColour}
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
