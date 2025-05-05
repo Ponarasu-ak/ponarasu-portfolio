@@ -1,2 +1,2 @@
-export * from "./NavBar";
 export * from "./ContactSideBar";
+export * from "./NavBar";
