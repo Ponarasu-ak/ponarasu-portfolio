@@ -1,10 +1,10 @@
 import { useState } from "react";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import { ArrowRight, Git, Linkdin, Twitter } from "../../../assets";
 import { profilePic } from "../../../assets/images";
 import { Modal, SimpleSlider } from "../../../components";
 import { NavBar } from "../../container";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -135,3 +135,4 @@ const LandingPage = () => {
 };
 
 export { LandingPage };
+
