@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { ArrowRight, Git, Linkdin, Twitter } from "../../../assets";
+import { Git, Linkdin, Twitter } from "../../../assets";
 import { profilePic } from "../../../assets/images";
 import { Modal, SimpleSlider } from "../../../components";
 import { NavBar } from "../../container";
@@ -34,13 +34,13 @@ const LandingPage = () => {
                   filter: "brightness(0.9)",
                 }}
               />
-              <div className="absolute bottom-0 bg-gradient-to-t  from-black via-black/80 to-transparent flex flex-col gap-3 w-full p-4 ">
+              <div className="absolute bottom-0 bg-gradient-to-t  from-black via-black/80 to-transparent flex flex-col gap-2 w-full p-4 ">
                 <div className="flex justify-between items-center text-white text-lg font-semibold">
                   <span>Ponarasu / Front-End Developer</span>
-                  <ArrowRight fillColour="#fff" />
+                  {/* <ArrowRight fillColour="#fff" /> */}
                 </div>
                 <div className="h-px bg-white/20" />
-                <div className="flex gap-6 pt-3">
+                <div className="flex gap-6 pt-2">
                   <a
                     href="https://www.linkedin.com"
                     target="_blank"
@@ -116,7 +116,9 @@ const LandingPage = () => {
             </div>
             <div
               style={{}}
+              onClick={() => setIsModalOpen(true)}
               className="bg-white/15 backdrop-blur-3xl border border-white/10 text-white  "
+
             >
               <SimpleSlider />
             </div>
@@ -130,6 +132,7 @@ const LandingPage = () => {
         Sketched in Figma, built in VS Code, styled with Tailwind, powered by Vite, and launched with Vercel.
       </div> */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
     </div>
   );
 };
