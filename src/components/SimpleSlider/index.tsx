@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { intrvuspaceP, sasmicroP, screeningspaceP } from "../../assets/images";
+import { intrvuspaceP, screeningspaceP } from "../../assets/images";
 
-const images = [intrvuspaceP, screeningspaceP, sasmicroP];
+const images = [ screeningspaceP,intrvuspaceP];
 
 function SimpleSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,11 +22,11 @@ function SimpleSlider() {
     return () => resetTimeout();
   }, [currentIndex]);
 
-  const goToPrevious = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
+  // const goToPrevious = () => {
+  //   if (isTransitioning) return;
+  //   setIsTransitioning(true);
+  //   setCurrentIndex((prev) => prev - 1);
+  // };
 
   const goToNext = () => {
     if (isTransitioning) return;
@@ -65,9 +65,10 @@ function SimpleSlider() {
           className="carousel-inner"
           style={{
             display: "flex",
-            transition: isTransitioning ? "transform 0.5s ease-in-out" : "none",
+            transition: isTransitioning ? "transform 0.8s ease-in-out" : "none",
             transform: `translateX(-${(currentIndex + 1) * 100}%)`,
             height: "100%",
+            opacity:'0.8'
           }}
           onTransitionEnd={handleTransitionEnd}
         >
@@ -103,10 +104,19 @@ function SimpleSlider() {
               height: "100%",
             }}
           />
+          
+        </div>
+        <div style={{ boxShadow: "rgba(0, 0, 0, 1.7) 0px -50px 26px -28px inset" }} className="absolute bottom-0 p-2 w-full flex  justify-between items-center">
+        <div>
+        Things I’ve Worked On
+        </div>
+        {/* <ArrowRight fillColour="#fff"/> */}
+
         </div>
 
+
         {/* Left Arrow */}
-        <button
+        {/* <button
           onClick={goToPrevious}
           style={{
             position: "absolute",
@@ -124,10 +134,10 @@ function SimpleSlider() {
           }}
         >
           ‹
-        </button>
+        </button> */}
 
         {/* Right Arrow */}
-        <button
+        {/* <button
           onClick={goToNext}
           style={{
             position: "absolute",
@@ -145,7 +155,7 @@ function SimpleSlider() {
           }}
         >
           ›
-        </button>
+        </button> */}
       </div>
     </div>
   );
