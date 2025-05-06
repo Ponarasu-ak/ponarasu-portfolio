@@ -22,11 +22,11 @@ function SimpleSlider() {
     return () => resetTimeout();
   }, [currentIndex]);
 
-  const goToPrevious = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
+  // const goToPrevious = () => {
+  //   if (isTransitioning) return;
+  //   setIsTransitioning(true);
+  //   setCurrentIndex((prev) => prev - 1);
+  // };
 
   const goToNext = () => {
     if (isTransitioning) return;
