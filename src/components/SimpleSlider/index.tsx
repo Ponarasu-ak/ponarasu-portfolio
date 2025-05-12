@@ -80,6 +80,7 @@ function SimpleSlider() {
               flexShrink: 0,
               width: "100%",
               height: "100%",
+              borderRadius:'10px'
             }}
           />
           {images.map((src, idx) => (
@@ -91,6 +92,7 @@ function SimpleSlider() {
                 flexShrink: 0,
                 width: "100%",
                 height: "100%",
+                borderRadius:'10px'
               }}
             />
           ))}
@@ -102,6 +104,7 @@ function SimpleSlider() {
               flexShrink: 0,
               width: "100%",
               height: "100%",
+              borderRadius:'10px'
             }}
           />
           

@@ -1,8 +1,4 @@
 #root {
-  /* max-width: 1280px;
-  margin: 0 auto; */
-  padding: 0rem  2rem;
+  background: linear-gradient(to bottom right, black, #1a202c, #1e3a8a);
   font-family: "Inter", sans-serif;
- 
 }
-

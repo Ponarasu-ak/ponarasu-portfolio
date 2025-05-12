@@ -11,7 +11,7 @@ const NavBar = () => {
         className="text-white cursor-pointer flex gap-2 "
         onClick={() => setIsVisible(true)}
       >
-        Say Hi <SayHi fillColour="#fff" height={20} width={20}/>
+        {/* Say Hi <SayHi fillColour="#fff" height={20} width={20}/> */}
       </div>
       <ContactSideBar isVisible={isVisible} onclose={setIsVisible} />
     </div>
