@@ -1,8 +1,6 @@
 #root {
-  /* max-width: 1280px;
-  margin: 0 auto; */
-  padding: 0rem  2rem;
+  background-color: "";
   font-family: "Inter", sans-serif;
- 
+  max-width: 1280px;
+  margin: 0 auto;
 }
-

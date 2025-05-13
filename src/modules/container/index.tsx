@@ -1,2 +1,4 @@
-export * from "./ContactSideBar";
-export * from "./NavBar";
+
+export * from "./ProfileContent";
+export * from "./Contact";
+export * from "./SplashScreen";
