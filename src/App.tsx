@@ -7,7 +7,7 @@ function App() {
     <>
       <SpeedInsights />
 
-      <div className="">
+      <div className=" ">
         <LandingPage />
       </div>
     </>

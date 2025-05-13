@@ -12,16 +12,47 @@ const Contact: React.FC<ContactProps> = ({
   return (
     <div>
       <div
-        className="absolute text-white bottom-10 right-10 cursor-pointer   "
+        className="absolute text-white bottom-10 right-10 cursor-pointer animate-wave"
         onClick={() => setIsContactVisible(!isContactVisible)}
       >
         <SayHi height={30} width={25} fillColour="#fff" />
       </div>
+
+      <style>{`
+        @keyframes wave {
+          0% {
+        transform: rotate(0deg);
+          }
+          25% {
+        transform: rotate(10deg);
+          }
+          50% {
+        transform: rotate(0deg);
+          }
+          75% {
+        transform: rotate(-10deg);
+          }
+          100% {
+        transform: rotate(0deg);
+          }
+        }
+
+        .animate-wave {
+          animation: wave 0.6s ease-in-out infinite;
+        }
+      `}</style>
       {isContactVisible && (
-        <div className="absolute right-10 bottom-20  bg-white/5 backdrop-blur-3xl border border-white/20 text-white p-5 ">
-          <div className="flex flex-col justify-between gap-5 w-3xs">
-            <div className="text-md font-medium leading-relaxed">
-              Looking to start a new project or just want to say hi? <br />
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-lg flex items-center justify-center z-50 px-4">
+          <button
+            className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300 transition duration-200"
+            onClick={() => setIsContactVisible(false)}
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          <div className="flex flex-col max-w-96 border border-white/20 rounded-md p-4 justify-between gap-5 ">
+            <div className="text-xl font-medium leading-relaxed">
+              Looking to start a new project or just want to say hi?
               Send me an email and I’ll do my best to reply within 24 hrs!
             </div>
 
