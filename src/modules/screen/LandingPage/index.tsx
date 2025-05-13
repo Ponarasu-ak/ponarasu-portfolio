@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code, Layers } from "lucide-react";
+import { ArrowUpRight, Code, Layers, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
@@ -42,14 +42,7 @@ const LandingPage = () => {
           <div className="flex flex-col gap-5">
             <div className="text-5xl font-bold">Ponarasu</div>
             <div className="text-lg font-medium text-white/65 relative overflow-hidden">
-              <span
-                className="block animate-gradient-text bg-gradient-to-r from-[#C0C0C0] via-white to-[#C0C0C0] bg-[length:200%_100%] bg-clip-text text-transparent"
-                style={{
-                  animation: "shine 2s linear infinite",
-                }}
-              >
-                Front End Developer
-              </span>
+              <span className=" text-sky-500">Front End Developer</span>
               <style>
                 {`
                 @keyframes shine {
@@ -68,14 +61,11 @@ const LandingPage = () => {
               pixel-perfect interfaces for the web.
             </div>
           </div>
-          <div className="flex gap-8">
+          <div className="flex mt-4 lg:mt-0 items-center  gap-8">
             <div
               className="cursor-pointer"
               onClick={() =>
-                window.open(
-                  "https://x.com/Naveen_ponarasu",
-                  "_blank"
-                )
+                window.open("https://x.com/Naveen_ponarasu", "_blank")
               }
             >
               <Twitter
@@ -88,10 +78,7 @@ const LandingPage = () => {
             <div
               className="cursor-pointer"
               onClick={() =>
-                window.open(
-                  "https://github.com/Ponarasu-ak",
-                  "_blank"
-                )
+                window.open("https://github.com/Ponarasu-ak", "_blank")
               }
             >
               <Git
@@ -112,7 +99,7 @@ const LandingPage = () => {
             >
               <Linkdin fillColour="#fff" height={25} width={25} />
             </div>{" "}
-            /{" "}
+            <span className="text-sky-500" >|</span>{" "}
             <div
               className="cursor-pointer"
               onClick={() => window.open(Resume, "_blank")}
@@ -124,13 +111,16 @@ const LandingPage = () => {
       </div>
       <div className="w-full lg:w-[50%] h-full lg:overflow-auto py-28 ">
         <div className="md:col-span-2 flex flex-col gap-16 lg:gap-28">
-          <div className="text-white/65 flex flex-col gap-7 text-md lg:text-lg leading-relaxed ">
-            <div>
+          <div className="text-white/65 flex flex-col gap-6 text-md lg:text-lg leading-relaxed ">
+            <h3 className="text-xl flex gap-3 items-center font-semibold text-white m-0">
+              <User className="w-6 h-6 text-sky-500" />
+              About
+            </h3>
+            <div className="leading-relaxed ">
               I’m a developer passionate about crafting accessible,
-              pixel-perfect user interfaces that blend thoughtful design with
-              robust engineering. My favorite work lies at the intersection of
-              design and development, creating experiences that not only look
-              great but are meticulously built for performance and usability
+              pixel-perfect user interfaces that blend thoughtful design. My
+              favorite work lies at the intersection of design and development,
+              creating experiences and build for performance and usability
             </div>
             <div>
               Currently, I'm a Front-End Developer at{" "}
@@ -175,7 +165,7 @@ const LandingPage = () => {
           {/* project */}
           <div>
             <div className="md:col-span-2">
-              <h3 className="text-2xl flex gap-3 items-center font-semibold text-white mb-4">
+              <h3 className="text-xl flex gap-3 items-center font-semibold text-white mb-4">
                 <Code className="w-6 h-6 text-sky-500" /> Expreience
               </h3>
 
@@ -282,7 +272,7 @@ const LandingPage = () => {
               {/* <h3 className="text-2xl font-semibold text-white mb-4">
                 Things I've Worked
               </h3> */}
-              <h3 className="text-2xl flex gap-3 items-center font-semibold text-white mb-4">
+              <h3 className="text-xl flex gap-3 items-center font-semibold text-white mb-4">
                 <Layers className="w-6 h-6 text-sky-500" /> Things I've Worked
               </h3>
 
@@ -403,7 +393,7 @@ const LandingPage = () => {
             </div>
           </div>
           {/* final touch */}
-          <div className="text-md mb-16 lg:mb-0 text-white/60 font-medium">
+          <div className=" text-sm lg:text-md mb-16 lg:mb-0 text-white/60 font-medium">
             Sketched in <span className="text-white">Figma</span> and coded in{" "}
             <span className="text-white">Visual Studio </span>. Built with{" "}
             <span className="text-white">React </span>
