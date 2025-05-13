@@ -1,4 +1,4 @@
-import { Briefcase, Code, ExternalLink, Layers } from "lucide-react";
+import { Code, ExternalLink, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
@@ -6,8 +6,8 @@ import {
   sasmicroP,
   screeningspaceP,
 } from "../../../assets/images";
-import { Contact, SplashScreen } from "../../container";
 import { Resume } from "../../../assets/pdf";
+import { Contact, SplashScreen } from "../../container";
 
 const LandingPage = () => {
   const [contact, setContact] = useState(false);
