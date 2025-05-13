@@ -12,7 +12,7 @@ const Contact: React.FC<ContactProps> = ({
   return (
     <div>
       <div
-        className="absolute text-white bottom-10 right-10 cursor-pointer animate-wave"
+        className="absolute text-white bottom-2 right-2 lg:bottom-10 lg:right-10 cursor-pointer animate-wave"
         onClick={() => setIsContactVisible(!isContactVisible)}
       >
         <SayHi height={30} width={25} fillColour="#fff" />

@@ -1,4 +1,4 @@
-import { Code, ExternalLink, Layers } from "lucide-react";
+import { ArrowUpRight, Code, Layers } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
@@ -41,8 +41,27 @@ const LandingPage = () => {
         <div className="flex flex-col gap-6 lg:justify-between h-full">
           <div className="flex flex-col gap-5">
             <div className="text-5xl font-bold">Ponarasu</div>
-            <div className="text-lg font-medium text-white/65  ">
-              Front End Developer
+            <div className="text-lg font-medium text-white/65 relative overflow-hidden">
+              <span
+                className="block animate-gradient-text bg-gradient-to-r from-[#C0C0C0] via-white to-[#C0C0C0] bg-[length:200%_100%] bg-clip-text text-transparent"
+                style={{
+                  animation: "shine 2s linear infinite",
+                }}
+              >
+                Front End Developer
+              </span>
+              <style>
+                {`
+                @keyframes shine {
+                0% {
+                  background-position: 200% 0;
+                }
+                100% {
+                  background-position: 0 0;
+                }
+                }
+              `}
+              </style>
             </div>
             <div className="text-md text-white/65 ">
               I create clean, accessible, and <br />
@@ -50,9 +69,50 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="flex gap-8">
-            <Twitter fillColour="#fff" height={25} width={25} />
-            <Git fillColour="#fff" height={25} width={25} />
-            <Linkdin fillColour="#fff" height={25} width={25} /> /{" "}
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://x.com/Naveen_ponarasu",
+                  "_blank"
+                )
+              }
+            >
+              <Twitter
+                fillColour="#fff"
+                height={25}
+                width={25}
+                onClick={() => {}}
+              />
+            </div>
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://github.com/Ponarasu-ak",
+                  "_blank"
+                )
+              }
+            >
+              <Git
+                fillColour="#fff"
+                height={25}
+                width={25}
+                onClick={() => {}}
+              />
+            </div>
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/ponarasu-ak/",
+                  "_blank"
+                )
+              }
+            >
+              <Linkdin fillColour="#fff" height={25} width={25} />
+            </div>{" "}
+            /{" "}
             <div
               className="cursor-pointer"
               onClick={() => window.open(Resume, "_blank")}
@@ -63,8 +123,8 @@ const LandingPage = () => {
         </div>
       </div>
       <div className="w-full lg:w-[50%] h-full lg:overflow-auto py-28 ">
-        <div className="md:col-span-2 flex flex-col gap-28">
-          <div className="text-white/65 flex flex-col gap-7 text-lg leading-relaxed">
+        <div className="md:col-span-2 flex flex-col gap-16 lg:gap-28">
+          <div className="text-white/65 flex flex-col gap-7 text-md lg:text-lg leading-relaxed ">
             <div>
               I’m a developer passionate about crafting accessible,
               pixel-perfect user interfaces that blend thoughtful design with
@@ -74,16 +134,33 @@ const LandingPage = () => {
             </div>
             <div>
               Currently, I'm a Front-End Developer at{" "}
-              <span className="text-white cursor-pointer">Leora Infotech</span>,
-              specializing in accessibility. I help design, build, and maintain
-              UI components that power{" "}
-              <span className="text-white cursor-pointer">
-                ai-interview.space{" "}
+              <span
+                onClick={() =>
+                  window.open("https://www.leorainfotech.in/", "_blank")
+                }
+                className="text-white cursor-pointer text-md"
+              >
+                Leora Infotech
+              </span>
+              , specializing in accessibility. I help design, build, and
+              maintain UI components that power{" "}
+              <span
+                onClick={() =>
+                  window.open("https://aiinterview.space/", "_blank")
+                }
+                className="text-white cursor-pointer text-md"
+              >
+                AI Interview Space{" "}
               </span>{" "}
               and
-              <span className="text-white cursor-pointer">
+              <span
+                onClick={() =>
+                  window.open("https://screening.space/", "_blank")
+                }
+                className="text-white cursor-pointer text-md"
+              >
                 {" "}
-                alp.screening.space
+                Screening Space
               </span>{" "}
               frontend, ensuring our platform adheres to web accessibility
               standards and best practices to deliver inclusive, high-quality
@@ -102,7 +179,7 @@ const LandingPage = () => {
                 <Code className="w-6 h-6 text-sky-500" /> Expreience
               </h3>
 
-              <p className="text-white/70 mb-6 leading-relaxed text-lg">
+              <p className="text-white/70 mb-6 leading-relaxed text-md lg:text-lg">
                 I'm a passionate front-end developer with a focus on creating
                 intuitive and engaging user interfaces. With a strong foundation
                 in modern JavaScript frameworks and responsive design
@@ -116,9 +193,7 @@ const LandingPage = () => {
                     <h5 className="font-medium text-white">
                       Front-End Developer
                     </h5>
-                    <span className="text-blue-300 text-sm">
-                      2024 - Present
-                    </span>
+                    <span className="text-sky-500 text-sm">2024 - Present</span>
                   </div>
                   <div className="text-white/60 text-sm mb-2">
                     Leora Infotech.
@@ -141,7 +216,7 @@ const LandingPage = () => {
                     ].map((skill, idx) => (
                       <span
                         key={idx}
-                        className="text-xs px-3 py-1 bg-white/10 border border-white/20 rounded-full text-white/80"
+                        className="text-xs px-3 py-1 bg-sky-600/30 border border-white/20 rounded-full text-white/80"
                       >
                         {skill}
                       </span>
@@ -152,7 +227,9 @@ const LandingPage = () => {
                 <div className="p-4 bg-white/5 rounded-lg border border-white/20">
                   <div className="flex justify-between mb-1">
                     <h5 className="font-medium text-white">Intern</h5>
-                    <span className="text-blue-300 text-sm">2023 - 2024</span>
+                    <span className="text-sky-500 text-sm">
+                      Sep 2023 - Feb 2024
+                    </span>
                   </div>
                   <div className="text-white/60 text-sm mb-2">
                     Leora Infotech.
@@ -166,7 +243,7 @@ const LandingPage = () => {
                     {["JavaScript", "React", "Git"].map((skill, idx) => (
                       <span
                         key={idx}
-                        className="text-xs px-3 py-1 bg-white/10 border border-white/20 rounded-full text-white/80"
+                        className="text-xs px-3 py-1 bg-sky-600/30 border border-white/20 rounded-full text-white/80"
                       >
                         {skill}
                       </span>
@@ -176,7 +253,7 @@ const LandingPage = () => {
                 <div className="p-4 bg-white/5 rounded-lg border border-white/20">
                   <div className="flex justify-between mb-1">
                     <h5 className="font-medium text-white">Intern</h5>
-                    <span className="text-blue-300 text-sm">2023</span>
+                    <span className="text-sky-500 text-sm">May - Aug 2023</span>
                   </div>
                   <div className="text-white/60 text-sm mb-2">
                     Cognizant Technology Solutions.
@@ -189,7 +266,7 @@ const LandingPage = () => {
                     {["selenium", "java", "Git"].map((skill, idx) => (
                       <span
                         key={idx}
-                        className="text-xs px-3 py-1 bg-white/10 border border-white/20 rounded-full text-white/80"
+                        className="text-xs px-3 py-1 bg-sky-600/30 border border-white/20 rounded-full text-white/80"
                       >
                         {skill}
                       </span>
@@ -209,7 +286,7 @@ const LandingPage = () => {
                 <Layers className="w-6 h-6 text-sky-500" /> Things I've Worked
               </h3>
 
-              <p className="text-white/70 mb-6 leading-relaxed text-lg">
+              <p className="text-white/70 mb-6 text-md lg:text-lg">
                 I've worked on a range of front-end projects that showcase my
                 ability to turn design concepts into fully functional,
                 responsive user interfaces. Each project reflects my commitment
@@ -219,7 +296,12 @@ const LandingPage = () => {
               </p>
 
               <div className="space-y-5 flex flex-col gap-2 mb-6">
-                <div className="p-4  w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20">
+                <div
+                  onClick={() =>
+                    window.open("https://aiinterview.space/", "_blank")
+                  }
+                  className="p-3 w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20 hover:border-white/40 cursor-pointer transition-colors duration-300"
+                >
                   <div className="flex items-center lg:w-[40%]  justify-center">
                     <img
                       style={{ objectFit: "fill" }}
@@ -227,10 +309,10 @@ const LandingPage = () => {
                       alt=""
                     />
                   </div>
-                  <div className="lg:w-[60%] ">
+                  <div className="lg:w-[60%] mt-6 lg:mt-0 ">
                     <div className="flex justify-between mb-3">
                       <h5 className="font-medium text-lg text-white">
-                        aiinterview.space
+                        AI Interview Space
                       </h5>
                       <a
                         href={"#"}
@@ -238,7 +320,8 @@ const LandingPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} className="text-white" />
+                        {/* <ExternalLink size={16} className="text-white" /> */}
+                        <ArrowUpRight size={18} className="text-white" />
                       </a>
                     </div>
 
@@ -250,7 +333,12 @@ const LandingPage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="p-4  w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20">
+                <div
+                  onClick={() =>
+                    window.open("https://screening.space/", "_blank")
+                  }
+                  className="p-3  w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20  hover:border-white/40 cursor-pointer transition-colors duration-300"
+                >
                   <div className="flex items-center lg:w-[40%]  justify-center">
                     <img
                       style={{ objectFit: "fill" }}
@@ -258,10 +346,10 @@ const LandingPage = () => {
                       alt=""
                     />
                   </div>
-                  <div className="lg:w-[60%] ">
+                  <div className="lg:w-[60%] mt-6 lg:mt-0 ">
                     <div className="flex justify-between mb-3">
                       <h5 className="font-medium text-lg text-white">
-                        screening.space
+                        Screening Space
                       </h5>
                       <a
                         href={"#"}
@@ -269,7 +357,8 @@ const LandingPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} className="text-white" />
+                        {/* <ExternalLink size={16} className="text-white" /> */}
+                        <ArrowUpRight size={18} className="text-white" />
                       </a>
                     </div>
 
@@ -280,14 +369,17 @@ const LandingPage = () => {
                     </p>
                   </div>
                 </div>
-                <div className="p-4  w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20">
+                <div
+                  onClick={() => window.open("https://sasmicro.in/", "_blank")}
+                  className="p-3  w-full lg:flex gap-4 bg-white/5 rounded-lg border border-white/20  hover:border-white/40 cursor-pointer transition-colors duration-300"
+                >
                   <div className="flex items-center lg:w-[40%]  justify-center">
                     <img style={{ objectFit: "fill" }} src={sasmicroP} alt="" />
                   </div>
-                  <div className="lg:w-[60%] ">
+                  <div className="lg:w-[60%] mt-6 lg:mt-0 ">
                     <div className="flex justify-between mb-3">
                       <h5 className="font-medium text-lg text-white">
-                        sasmicro.in
+                        Sas Micro
                       </h5>
                       <a
                         href={"#"}
@@ -295,7 +387,8 @@ const LandingPage = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} className="text-white" />
+                        {/* <ExternalLink size={16} className="text-white" /> */}
+                        <ArrowUpRight size={18} className="text-white" />
                       </a>
                     </div>
 
@@ -310,10 +403,13 @@ const LandingPage = () => {
             </div>
           </div>
           {/* final touch */}
-          <div className="text-sm font-medium">
-            Sketched in Figma and coded in Visual Studio Code. Built with React
-            Vite and Tailwind magic , Launched into the internet by Vercel.
-            Dressed to impress in Inter.
+          <div className="text-md mb-16 lg:mb-0 text-white/60 font-medium">
+            Sketched in <span className="text-white">Figma</span> and coded in{" "}
+            <span className="text-white">Visual Studio </span>. Built with{" "}
+            <span className="text-white">React </span>
+            Vite and <span className="text-white">Tailwind</span>, Launched into
+            the internet by <span className="text-white">Vercel</span>. Dressed
+            to impress in <span className="text-white">Inter</span>.
           </div>
         </div>
       </div>
