@@ -1,4 +1,6 @@
+import emailjs from "@emailjs/browser";
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 import { SayHi } from "../../../assets";
 
 interface ContactProps {
@@ -10,6 +12,34 @@ const Contact: React.FC<ContactProps> = ({
   setIsContactVisible,
   isContactVisible,
 }) => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    const email = form.current?.from_email.value.trim();
+    const message = form.current?.message.value.trim();
+
+    if (!email || !message) {
+      window.alert("Please fill in both email and message.");
+      return;
+    }
+
+    emailjs
+      .sendForm("service_xrcaxaw", "template_19cworn", form.current!, {
+        publicKey: "Kk5CcojYnFEeL4sVp",
+      })
+      .then(
+        () => {
+          window.alert("Message sent successfully!");
+          form.current?.reset();
+        },
+        (error: any) => {
+          window.alert("Failed to send message. Please try again.");
+          console.log("FAILED...", error?.text || error);
+        }
+      );
+  };
+
   return (
     <div>
       <div
@@ -75,27 +105,34 @@ const Contact: React.FC<ContactProps> = ({
               within 24 hours!
             </div>
 
-            <form className="flex flex-col gap-4">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="flex flex-col gap-4"
+            >
               <input
+                autoComplete="off"
+                name="from_email"
                 type="email"
                 placeholder="Your Email"
-                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 focus:outline-none focus:ring-1 focus:ring-sky-400"
               />
               <textarea
+                autoComplete="off"
+                name="message"
                 placeholder="Your Message"
-                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 h-[200px] resize-none focus:outline-none focus:ring-2 focus:ring-sky-400"
+                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 h-[200px] resize-none focus:outline-none focus:ring-1 focus:ring-sky-400"
               ></textarea>
               <button
                 type="submit"
                 className="bg-sky-500 cursor-pointer transition duration-300 ease-in-out text-white font-medium py-3 rounded-md shadow-md"
-                formAction="mailto:your-email@example.com"
-                formMethod="post"
-                formEncType="text/plain"
               >
                 Send Message
               </button>
             </form>
           </div>
+      {/* <Toast /> */}
+
         </div>
       )}
     </div>
@@ -103,3 +140,4 @@ const Contact: React.FC<ContactProps> = ({
 };
 
 export { Contact };
+

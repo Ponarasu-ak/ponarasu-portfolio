@@ -8,6 +8,7 @@ import {
 } from "../../../assets/images";
 import { Resume } from "../../../assets/pdf";
 import { Contact, SplashScreen } from "../../container";
+import { Toast } from "../../../components";
 
 const LandingPage = () => {
   const [contact, setContact] = useState(false);
@@ -403,7 +404,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
       <Contact setIsContactVisible={setContact} isContactVisible={contact} />
     </div>
   );
