@@ -99,7 +99,7 @@ const LandingPage = () => {
             >
               <Linkdin fillColour="#fff" height={25} width={25} />
             </div>{" "}
-            <span className="text-sky-500" >|</span>{" "}
+            <span className="text-sky-500">|</span>{" "}
             <div
               className="cursor-pointer"
               onClick={() => window.open(Resume, "_blank")}
@@ -403,7 +403,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
       <Contact setIsContactVisible={setContact} isContactVisible={contact} />
     </div>
   );
