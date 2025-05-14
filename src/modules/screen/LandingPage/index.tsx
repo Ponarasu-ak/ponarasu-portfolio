@@ -8,7 +8,6 @@ import {
 } from "../../../assets/images";
 import { Resume } from "../../../assets/pdf";
 import { Contact, SplashScreen } from "../../container";
-import { Toast } from "../../../components";
 
 const LandingPage = () => {
   const [contact, setContact] = useState(false);
@@ -100,7 +99,7 @@ const LandingPage = () => {
             >
               <Linkdin fillColour="#fff" height={25} width={25} />
             </div>{" "}
-            <span className="text-sky-500" >|</span>{" "}
+            <span className="text-sky-500">|</span>{" "}
             <div
               className="cursor-pointer"
               onClick={() => window.open(Resume, "_blank")}
