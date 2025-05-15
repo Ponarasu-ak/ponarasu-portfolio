@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SayHi } from "../../../assets";
 
 interface ContactProps {
@@ -13,14 +13,23 @@ const Contact: React.FC<ContactProps> = ({
   isContactVisible,
 }) => {
   const form = useRef<HTMLFormElement>(null);
+  const [errors, setErrors] = useState<{ email: boolean; message: boolean }>({
+    email: false,
+    message: false,
+  });
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
     const email = form.current?.from_email.value.trim();
     const message = form.current?.message.value.trim();
 
-    if (!email || !message) {
-      window.alert("Please fill in both email and message.");
+    const newErrors = {
+      email: !email,
+      message: !message,
+    };
+    setErrors(newErrors);
+
+    if (newErrors.email || newErrors.message) {
       return;
     }
 
@@ -32,6 +41,7 @@ const Contact: React.FC<ContactProps> = ({
         () => {
           window.alert("Message sent successfully!");
           form.current?.reset();
+          setIsContactVisible(false); // Close modal on success
         },
         (error: any) => {
           window.alert("Failed to send message. Please try again.");
@@ -51,23 +61,12 @@ const Contact: React.FC<ContactProps> = ({
 
       <style>{`
         @keyframes wave {
-          0% {
-        transform: rotate(0deg);
-          }
-          25% {
-        transform: rotate(10deg);
-          }
-          50% {
-        transform: rotate(0deg);
-          }
-          75% {
-        transform: rotate(-10deg);
-          }
-          100% {
-        transform: rotate(0deg);
-          }
+          0% { transform: rotate(0deg);}
+          25% { transform: rotate(10deg);}
+          50% { transform: rotate(0deg);}
+          75% { transform: rotate(-10deg);}
+          100% { transform: rotate(0deg);}
         }
-
         .animate-wave {
           animation: wave 0.6s ease-in-out infinite;
         }
@@ -109,19 +108,34 @@ const Contact: React.FC<ContactProps> = ({
               ref={form}
               onSubmit={sendEmail}
               className="flex flex-col gap-4"
+              autoComplete="off"
             >
               <input
                 autoComplete="off"
                 name="from_email"
                 type="email"
                 placeholder="Your Email"
-                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 focus:outline-none focus:ring-1 focus:ring-sky-400"
+                className={`p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border ${
+                  errors.email
+                    ? "border-red-400 focus:ring-red-400"
+                    : "border-white/10 focus:ring-sky-400"
+                } focus:outline-none focus:ring-1`}
+                onChange={() =>
+                  setErrors((prev) => ({ ...prev, email: false }))
+                }
               />
               <textarea
                 autoComplete="off"
                 name="message"
                 placeholder="Your Message"
-                className="p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border border-white/10 h-[200px] resize-none focus:outline-none focus:ring-1 focus:ring-sky-400"
+                className={`p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border ${
+                  errors.message
+                    ? "border-red-400 focus:ring-red-400"
+                    : "border-white/10 focus:ring-sky-400"
+                } h-[200px] resize-none focus:outline-none focus:ring-1`}
+                onChange={() =>
+                  setErrors((prev) => ({ ...prev, message: false }))
+                }
               ></textarea>
               <button
                 type="submit"
@@ -131,8 +145,6 @@ const Contact: React.FC<ContactProps> = ({
               </button>
             </form>
           </div>
-      {/* <Toast /> */}
-
         </div>
       )}
     </div>
@@ -140,4 +152,3 @@ const Contact: React.FC<ContactProps> = ({
 };
 
 export { Contact };
-
