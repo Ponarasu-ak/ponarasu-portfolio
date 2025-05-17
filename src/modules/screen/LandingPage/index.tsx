@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code, Layers, User } from "lucide-react";
+import { ArrowUpRight, Code, ContactIcon, Layers } from "lucide-react";
 import { useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
@@ -104,7 +104,7 @@ const LandingPage = () => {
         <div className="md:col-span-2 flex flex-col gap-16 lg:gap-28">
           <div className="text-white/65 flex flex-col gap-6 text-md lg:text-lg leading-relaxed ">
             <h3 className="text-xl flex gap-3 items-center font-semibold text-white m-0">
-              <User className="w-6 h-6 text-sky-500" />
+              <ContactIcon className="w-6 h-6 text-sky-500" />
               About
             </h3>
             <div className="leading-relaxed ">
