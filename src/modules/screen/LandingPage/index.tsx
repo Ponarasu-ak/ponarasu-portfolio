@@ -1,5 +1,5 @@
 import { ArrowUpRight, Code, Layers, User } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
   intrvuspaceP,
@@ -7,33 +7,24 @@ import {
   screeningspaceP,
 } from "../../../assets/images";
 import { Resume } from "../../../assets/pdf";
-import { Contact, SplashScreen } from "../../container";
+import { Contact } from "../../container";
 
 const LandingPage = () => {
   const [contact, setContact] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 3000);
-
-    return () => clearTimeout(timer); // Cleanup the timer
-  }, []);
-
-  if (showSplash) {
-    return <SplashScreen />;
-  }
 
   return (
     <div
-      className="lg:flex h-screen overflow-scroll text-white min-h-screen  px-4 md:px-10"
+      className="lg:flex h-screen screen-control overflow-scroll text-white min-h-screen  px-4 md:px-10"
       style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
     >
       <style>
         {`
         ::-webkit-scrollbar {
         display: none;
+        }
+        .screen-control{
+         max-width: 1280px;
+         margin: 0 auto;
         }
       `}
       </style>
