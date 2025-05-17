@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code, Contact2, ContactIcon, ContactRound, Layers, User } from "lucide-react";
+import { ArrowUpRight, Code, ContactIcon, Layers } from "lucide-react";
 import { useState } from "react";
 import { Git, Linkdin, Twitter } from "../../../assets";
 import {
