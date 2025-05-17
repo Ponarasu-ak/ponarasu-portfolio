@@ -2,7 +2,7 @@ import { SiteIconWithText } from "../../../assets";
 
 const SplashScreen = () => {
   return (
-    <div className="absolute z-50 h-screen w-screen flex justify-center items-center ">
+    <div className="absolute z-50 h-full w-full flex justify-center items-center ">
       <div className="animate-pulse">
         <SiteIconWithText height={120} width={120} fillColour="white" />
       </div>
@@ -11,3 +11,4 @@ const SplashScreen = () => {
 };
 
 export { SplashScreen };
+
