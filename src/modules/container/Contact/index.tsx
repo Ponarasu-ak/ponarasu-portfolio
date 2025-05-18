@@ -2,11 +2,14 @@ import emailjs from "@emailjs/browser";
 import { ArrowRight } from "lucide-react";
 import { useRef, useState } from "react";
 import { SayHi } from "../../../assets";
+import { Loader } from "../../../components";
 
 interface ContactProps {
   isContactVisible: boolean;
   setIsContactVisible: (visible: boolean) => void;
 }
+
+type ButtonState = "idle" | "loading" | "success";
 
 const Contact: React.FC<ContactProps> = ({
   setIsContactVisible,
@@ -17,6 +20,7 @@ const Contact: React.FC<ContactProps> = ({
     email: false,
     message: false,
   });
+  const [buttonState, setButtonState] = useState<ButtonState>("idle");
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,27 +37,37 @@ const Contact: React.FC<ContactProps> = ({
       return;
     }
 
+    setButtonState("loading");
+
     emailjs
       .sendForm("service_xrcaxaw", "template_19cworn", form.current!, {
         publicKey: "Kk5CcojYnFEeL4sVp",
       })
       .then(
         () => {
-          window.alert("Message sent successfully!");
           form.current?.reset();
-          setIsContactVisible(false); // Close modal on success
+          setButtonState("success");
+          setTimeout(() => {
+            setIsContactVisible(false);
+            setButtonState("idle");
+          }, 1500);
         },
         (error: any) => {
           window.alert("Failed to send message. Please try again.");
+          setButtonState("idle");
           console.log("FAILED...", error?.text || error);
         }
       );
   };
 
+  const handleInputFocus = () => {
+    setButtonState("idle");
+  };
+
   return (
     <div>
       <div
-        className="absolute text-white bottom-2 right-2 lg:bottom-10 lg:right-10 cursor-pointer animate-wave"
+        className="absolute text-white bottom-6 right-4 lg:bottom-10 lg:right-10 cursor-pointer animate-wave"
         onClick={() => setIsContactVisible(!isContactVisible)}
       >
         <SayHi height={30} width={25} fillColour="#fff" />
@@ -100,8 +114,8 @@ const Contact: React.FC<ContactProps> = ({
               </div>
             </div>
             <div className="text-md font-medium leading-relaxed">
-              Have a project in mind , Drop me an email I’ll get back to you
-              within 24 hours!
+              Have a project in mind , Drop me an Message I’ll get back to you
+              within 24 hrs!
             </div>
 
             <form
@@ -115,7 +129,7 @@ const Contact: React.FC<ContactProps> = ({
                 name="from_email"
                 type="email"
                 placeholder="Your Email"
-                className={`p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border ${
+                className={`p-3 rounded-md bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border ${
                   errors.email
                     ? "border-red-400 focus:ring-red-400"
                     : "border-white/10 focus:ring-sky-400"
@@ -123,25 +137,32 @@ const Contact: React.FC<ContactProps> = ({
                 onChange={() =>
                   setErrors((prev) => ({ ...prev, email: false }))
                 }
+                onFocus={handleInputFocus}
               />
               <textarea
                 autoComplete="off"
                 name="message"
                 placeholder="Your Message"
-                className={`p-3 rounded-md bg-white/20 backdrop-blur-sm placeholder-white/70 text-white border ${
+                className={`p-3 rounded-md bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border ${
                   errors.message
                     ? "border-red-400 focus:ring-red-400"
                     : "border-white/10 focus:ring-sky-400"
-                } h-[200px] resize-none focus:outline-none focus:ring-1`}
+                } h-[120px] lg:h-[200px] resize-none focus:outline-none focus:ring-1`}
                 onChange={() =>
                   setErrors((prev) => ({ ...prev, message: false }))
                 }
+                onFocus={handleInputFocus}
               ></textarea>
               <button
                 type="submit"
                 className="bg-sky-500 cursor-pointer transition duration-300 ease-in-out text-white font-medium py-3 rounded-md shadow-md"
+                disabled={buttonState === "loading"}
               >
-                Send Message
+                <div className="flex items-center gap-4 justify-center">
+                  {buttonState === "idle" && "Send Message"}
+                  {buttonState === "loading" && <Loader />}
+                  {buttonState === "success" && "Sent successfully!"}
+                </div>
               </button>
             </form>
           </div>
@@ -152,3 +173,4 @@ const Contact: React.FC<ContactProps> = ({
 };
 
 export { Contact };
+
