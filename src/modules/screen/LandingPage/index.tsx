@@ -4,6 +4,7 @@ import { WorkedOn } from "../../container/WorkedOn";
 
 const LandingPage = () => {
   const [contact, setContact] = useState(false);
+
   return (
     <div
       className="lg:flex h-screen screen-control overflow-scroll text-white min-h-screen px-4 md:px-16"
