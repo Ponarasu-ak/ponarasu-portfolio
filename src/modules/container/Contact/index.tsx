@@ -133,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({
                 type="email"
                 required
                 placeholder="Your Email"
-                className={`p-2 rounded-md text-sm bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border 
+                className={`p-3 rounded-md text-sm bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border 
                     border-white/10 focus:ring-sky-400 focus:outline-none focus:ring-1`}
                 onChange={() =>
                   setErrors((prev) => ({ ...prev, email: false }))
@@ -144,7 +144,7 @@ const Contact: React.FC<ContactProps> = ({
                 name="message"
                 placeholder="Your Message"
                 required
-                className={`p-2 rounded-md text-sm bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border $
+                className={`p-3 rounded-md text-sm bg-white/25 backdrop-blur-sm placeholder-white/70 text-white border $
                     border-white/10 focus:ring-sky-400
                  h-[120px] lg:h-[160px] resize-none focus:outline-none focus:ring-1`}
                 onChange={() =>
